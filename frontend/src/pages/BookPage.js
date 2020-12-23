@@ -14,32 +14,36 @@ export default function BookPage(props) {
                     <img className="medium" src={book.image} alt={book.name}></img>
                 </div>
                 <div className="col-1">
-                    <ul>
+                    <div className="card card-body">
+                        <ul>
                         <li>
                             <h1>{book.name}</h1>
                         </li>
                         <li>
                             <h1>{book.category}</h1>
                         </li>
+                        <li><strong>
+                            Description:
+                            <p>{book.description}</p>
+                        </strong>
+                        </li>
+                        </ul>
+                    </div>
+                    <ul>
                         <Rating
                             rating={book.rating}
                             numReviews={book.numReviews}
                         ></Rating>
-                        <li>
-                            Description:
-                            <p>{book.description}</p>
-                        </li>
+                        <div className="row">
+                            <li>
+                                <button className="primary block">Review</button>
+                            </li>  
+                        </div>
                     </ul>
                 </div>
-                <div className="col-1">
-                    <div className="card card-body">
-                        <ul>
-                            <li>
-                                <span className="review">Review</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            </div>
+            <div>
+                <p>{book.review}</p>
             </div>
         </div>
     );
