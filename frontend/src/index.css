@@ -184,7 +184,7 @@ li{
   flex: 1 1 50rem;
 }
 .col-2{
-  flex: 1 1 15rem;
+  flex: 1 1 40rem;
 }
 
 
@@ -208,13 +208,10 @@ header a {
   justify-content: center;
 }
 
-/* .row.right{
-  justify-content: ;
-} */
 
 /* Button */
 button {
-  margin-left: 20rem;
+  margin: 1rem 10rem;
   padding: 1rem;
   border-radius: 0.5rem;
   border: 0.1rem #a4a4a4 solid;
@@ -222,16 +219,26 @@ button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8f8f8;
+  justify-content: center;
   cursor: pointer;
 }
 button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #00be008e;
+}
+
+button.cube {
+  background-color: #ff040498;
+}
+
+button.cube{
+  min-width: 20rem;
+  width: 100%;
 }
 button.block {
-  min-width: 15rem;
+  min-width: 20rem;
   width: 100%;
 }
 
@@ -247,7 +254,8 @@ img.small{
 }
 
 img.medium {
-  margin-top: 10rem;
+  margin-top: 5rem;
+
   width: 100%;
 }
 

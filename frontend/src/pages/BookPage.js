@@ -29,11 +29,18 @@ export default function BookPage(props) {
                         </li>
                         </ul>
                     </div>
+                </div>
+                <div className="col-1">
                     <ul>
                         <div className="row">
-                            <li>
-                                <button className="primary block">Review</button>
-                            </li>  
+                            <ul>
+                                <li>
+                                    <button className="primary block">Review</button>
+                                </li>  
+                                <li>
+                                    <button className="primary cube">Save for later</button>
+                                </li> 
+                            </ul>
                         </div>
                     </ul>
                 </div>
@@ -42,6 +49,7 @@ export default function BookPage(props) {
                 <div className="card card-body">
                     <strong>Reviews:</strong>
                 <p>{book.review}</p>
+
                 </div>
             </div>
         </div>
