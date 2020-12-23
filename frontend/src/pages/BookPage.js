@@ -16,24 +16,20 @@ export default function BookPage(props) {
                 <div className="col-1">
                     <div className="card card-body">
                         <ul>
-                        <li>
-                            <h1>{book.name}</h1>
-                        </li>
-                        <li>
-                            <h1>{book.category}</h1>
-                        </li>
-                        <li><strong>
-                            Description:
-                            <p>{book.description}</p>
-                        </strong>
-                        </li>
-                        </ul>
-                    </div>
-                    <ul>
                         <Rating
                             rating={book.rating}
                             numReviews={book.numReviews}
                         ></Rating>
+                        <p className="category"><strong>{book.category}</strong></p>
+                        <li>
+                            <h1>{book.name}</h1>
+                        </li>
+                        <li><strong>Description:</strong>
+                            <p>{book.description}</p>
+                        </li>
+                        </ul>
+                    </div>
+                    <ul>
                         <div className="row">
                             <li>
                                 <button className="primary block">Review</button>
@@ -42,8 +38,11 @@ export default function BookPage(props) {
                     </ul>
                 </div>
             </div>
-            <div>
+            <div className="col-2">
+                <div className="card card-body">
+                    <strong>Reviews:</strong>
                 <p>{book.review}</p>
+                </div>
             </div>
         </div>
     );
