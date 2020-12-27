@@ -170,10 +170,21 @@ a:hover {
   color: #000000;
 }
 
+.divider{
+  width: 15px;
+  height:auto;
+  display:inline-block;
+}
+
 ul{
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+
+ul .btn{
+  margin-left: -7rem;
+  display: flex;
 }
 
 li{
@@ -234,11 +245,11 @@ button.cube {
 }
 
 button.cube{
-  min-width: 20rem;
+  min-width: 5rem;
   width: 100%;
 }
 button.block {
-  min-width: 20rem;
+  min-width: 5rem;
   width: 100%;
 }
 

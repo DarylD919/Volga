@@ -33,13 +33,15 @@ export default function BookPage(props) {
                 <div className="col-1">
                     <ul>
                         <div className="row">
-                            <ul>
+                            <ul className="btn">
                                 <li>
                                     <button className="primary block">Review</button>
                                 </li>  
+                                <div className="divider" />
                                 <li>
                                     <button className="primary cube">Save for later</button>
                                 </li> 
+                                
                             </ul>
                         </div>
                     </ul>

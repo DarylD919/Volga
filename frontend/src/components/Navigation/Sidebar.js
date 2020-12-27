@@ -18,7 +18,7 @@ export const Sidebar =
     {
         title:'Categories',
         path: '/Category',
-        icon:<IconsFa.FaFileAlt />,
+        icon:<IconsFa.FaGripVertical/>,
         cName: 'nav-sub'
     },
     {
