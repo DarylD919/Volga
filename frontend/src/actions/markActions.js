@@ -9,6 +9,7 @@ export const addToBookMark = (bookId) => async (dispatch, getState) => {
             name: data.name,
             image: data.image,
             category: data.category,
+            description: data.description,
             stock: data.stock,
             book: data._id,
         },

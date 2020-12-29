@@ -215,6 +215,10 @@ li{
   flex: 1 1 10rem;
 }
 
+.min-30 {
+  min-width: 30rem;
+}
+
 
 /* Header */
 header a {
@@ -284,6 +288,10 @@ img {
 
 img.small{
   max-width: 25rem;
+  width: 100%;
+}
+img.small-mark{
+  max-width: 40rem;
   width: 100%;
 }
 

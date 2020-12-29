@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addToBookMark } from '../actions/markActions';
+import MessageBox from '../components/MessageBox';
 
 
 export default function BookMarkPage(props) {
     const bookId = props.match.params.id;
-    // const qty = props.location.search
-    //     ? Number(props.location.search.split('=')[1])
-    //     : 1;
-    const bookDetails = useSelector((state) => state.bookDetails);
-    const { book } = bookDetails;
+
+    const mark = useSelector((state) => state.mark);
+    const { bookMarks } = mark;
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -18,15 +18,50 @@ export default function BookMarkPage(props) {
         }
     }, [dispatch, bookId]);
 
+    const removeFromMarkHandler = (id) => {
+        //remove the mark
+    };
+
+    const reviewOutHandler = () => {
+        props.history.push('/signin?redirect=review');
+    }
+
     return (
         <div>
-            <h1>Books you the user have saved</h1>
-            {/* <p>
-                UserID/Name : {book.name} Qty:{qty}
-            </p> */}
-            <p>
-                UserID/Name : {book.name}
-            </p>
+            <div>
+                <h1>user name books you have saved</h1>
+                {bookMarks.length === 0 ? (
+                    <MessageBox>No books saved. <Link to="/">Review some books</Link></MessageBox>
+                ) : (
+                    <div>
+                        {bookMarks.map((item) => (
+                        <div className="card card-body">
+
+                            <div key={item.book}>
+                                <div className="row top">
+                                    <div className="col-2">
+                                        <img src={item.image} alt={item.name} className="small-mark"></img>
+                                    </div>
+                                    <div className="col-1">
+                                        <div >
+                                            <Link to={`/book/${item.book}`}><h1>{item.name}</h1></Link>
+                                            <br />
+                                        </div>
+                                        <strong>Description:</strong> <br />{item.description}
+                                    </div>
+                                    <div>
+                                        <ul className="btn">
+                                            <button type="button" onClick={reviewOutHandler} className="primary block" disabled={bookMarks.length === 0}>Review</button>
+                                            <button type="button"  className="primary cube" onClick={() => removeFromMarkHandler(item.book)}>Delete</button>
+                                        </ul>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
