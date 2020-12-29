@@ -5,24 +5,27 @@ import { addToBookMark } from '../actions/markActions';
 
 export default function BookMarkPage(props) {
     const bookId = props.match.params.id;
-    const qty = props.location.search
-        ? Number(props.location.search.split('=')[1])
-        : 1;
+    // const qty = props.location.search
+    //     ? Number(props.location.search.split('=')[1])
+    //     : 1;
     const bookDetails = useSelector((state) => state.bookDetails);
     const { book } = bookDetails;
 
     const dispatch = useDispatch();
     useEffect(() => {
         if (bookId) {
-            dispatch(addToBookMark(bookId, qty));
+            dispatch(addToBookMark(bookId));
         }
-    }, [dispatch, bookId, qty]);
+    }, [dispatch, bookId]);
 
     return (
         <div>
             <h1>Books you the user have saved</h1>
-            <p>
+            {/* <p>
                 UserID/Name : {book.name} Qty:{qty}
+            </p> */}
+            <p>
+                UserID/Name : {book.name}
             </p>
         </div>
     );
