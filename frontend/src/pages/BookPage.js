@@ -28,23 +28,13 @@ export default function BookPage(props) {
                             <p>{book.description}</p>
                         </li>
                         </ul>
+                        <ul className="btn">
+                            <li>
+                                <button className="primary block">Review</button>
+                                <button className="primary cube">Save for later</button>
+                            </li>            
+                        </ul>
                     </div>
-                </div>
-                <div className="col-1">
-                    <ul>
-                        <div className="row">
-                            <ul className="btn">
-                                <li>
-                                    <button className="primary block">Review</button>
-                                </li>  
-                                <div className="divider" />
-                                <li>
-                                    <button className="primary cube">Save for later</button>
-                                </li> 
-                                
-                            </ul>
-                        </div>
-                    </ul>
                 </div>
             </div>
             <div className="col-2">
