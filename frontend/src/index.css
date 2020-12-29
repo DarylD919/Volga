@@ -215,7 +215,10 @@ header a {
 }
 
 
-/* Button */
+/* Button, select, textarea, inpu */
+input,
+select,
+textarea,
 button {
   margin: 2rem 5rem;
   padding: 1rem;
@@ -228,6 +231,9 @@ button {
   justify-content: center;
   cursor: pointer;
 }
+input:hover,
+select:hover,
+textarea:hover,
 button:hover {
   border: 0.1rem #404040 solid;
 }

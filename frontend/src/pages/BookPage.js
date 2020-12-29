@@ -12,9 +12,15 @@ export default function BookPage(props) {
     const bookDetails = useSelector((state) => state.bookDetails);
     const { loading, error, book } = bookDetails;
 
+    const addToReviewHandler = () => {
+        props.history.push(`/review/${bookId}`);
+    }
+
     useEffect(() => {
         dispatch(detailsBook(bookId));
     }, [dispatch, bookId]);
+
+
 
     return (
         <div>
@@ -49,7 +55,7 @@ export default function BookPage(props) {
                             </ul>
                             <ul className="btn">
                                 <li>
-                                    <button className="primary block">Review</button>
+                                    <button onClick={addToReviewHandler} className="primary block">Review</button>
                                     <button className="primary cube">Save for later</button>
                                 </li>            
                             </ul>

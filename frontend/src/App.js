@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Nav from './components/Navigation/Navbar';
 import BookPage from './pages/BookPage';
 import HomePage from './pages/HomePage';
+import ReviewPage from './pages/ReviewPage';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <main>
         <Route path="/" component={HomePage} exact></Route>
         <Route path="/book/:id" component={BookPage}></Route>
+        <Route path="/review/:id" component={ReviewPage}></Route>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
     </div>
