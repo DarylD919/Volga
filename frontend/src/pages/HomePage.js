@@ -17,7 +17,7 @@ export default function HomePage() {
     return (
         <div>
            <h1 className="subtitle">Welcome to Volga</h1>
-           <h2>Review you favourite books</h2>
+           <h2>Review your favourite books</h2>
         {loading ? (
         <LoadingBox></LoadingBox>
         ) :  error ? (
