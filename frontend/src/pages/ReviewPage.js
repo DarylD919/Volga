@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 
-export default function ReviewPage(props) {
+export default function ReviewPage() {
     const bookDetails = useSelector((state) => state.bookDetails);
     const { book } = bookDetails;
 
@@ -9,7 +9,7 @@ export default function ReviewPage(props) {
         <div>
             <h1>Review</h1>
             <p>
-                Review : {book.name}
+                UserID/Name : {book.name}
             </p>
         </div>
     );

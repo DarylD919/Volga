@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsBook } from '../actions/bookActions';
 import Rating from '../components/Rating';
@@ -12,8 +12,14 @@ export default function BookPage(props) {
     const bookDetails = useSelector((state) => state.bookDetails);
     const { loading, error, book } = bookDetails;
 
+    const [qty, setQty] = useState(1);
+
     const addToReviewHandler = () => {
         props.history.push(`/review/${bookId}`);
+    }
+
+    const addToBookMarkHandler = () => {
+        props.history.push(`/bookmark/${bookId}?${qty}`);
     }
 
     useEffect(() => {
@@ -56,7 +62,16 @@ export default function BookPage(props) {
                             <ul className="btn">
                                 <li>
                                     <button onClick={addToReviewHandler} className="primary block">Review</button>
-                                    <button className="primary cube">Save for later</button>
+                                    {book.stock > 0 && (
+                                    <select value={qty} onChange={(e) => setQty(e.target.value)}>
+                                        {[...Array(book.stock).keys()].map(
+                                            (x) => (
+                                                <option key={x + 1} value={x + 1}>{x +1}</option>
+                                            )
+                                        )}
+                                    </select>
+                                    )}
+                                    <button onClick={addToBookMarkHandler} className="primary cube">Save for later</button>
                                 </li>            
                             </ul>
                         </div>

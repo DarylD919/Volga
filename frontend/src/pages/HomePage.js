@@ -16,8 +16,7 @@ export default function HomePage() {
   }, [dispatch])
     return (
         <div>
-           <h1 className="subtitle">Welcome to Volga</h1>
-           <h2>Review your favourite books</h2>
+           <h1 className="subtitle">Welcome</h1>
         {loading ? (
         <LoadingBox></LoadingBox>
         ) :  error ? (

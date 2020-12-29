@@ -4,13 +4,16 @@ import * as IconsFa from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import { Sidebar } from './Sidebar';
 import '../../index.css';
+import { useSelector } from 'react-redux';
 
 
 function Navbar() {
-
     const [sidebar, setSidebar] = useState(false);
-
     const showSidebar = () => setSidebar(!sidebar)
+
+    const mark = useSelector((state) => state.mark);
+    const { bookMarks } = mark;
+
     return (
         <>
         <IconContext.Provider value={{color: '#000'} }>
@@ -21,6 +24,12 @@ function Navbar() {
         </div>
         <Link className="navbar-title" to="/">
             Volga
+        </Link>
+        <Link className="navbar-book" to="/bookmark">
+            <IconsFa.FaBookmark />
+            {bookMarks.length > 0 && (
+                <span className="badge">{bookMarks.length}</span>
+            )}
         </Link>
         <nav className = {sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
