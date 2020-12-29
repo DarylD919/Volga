@@ -10,7 +10,7 @@ p17
 1.create pages 
     HomePage
     BookPage
-    BookMarkPage - design v0.1
+    BookMarkPage - design v0.2
 2.index.css 
 
 
