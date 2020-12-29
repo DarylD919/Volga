@@ -261,7 +261,8 @@ img.small{
 
 img.medium {
   margin-top: 5rem;
-  width: 90%;
+  min-width: 50rem;
+  width: 100%;
 }
 
 /* Card */

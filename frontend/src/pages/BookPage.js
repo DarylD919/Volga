@@ -1,49 +1,69 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { detailsBook } from '../actions/bookActions';
 import Rating from '../components/Rating';
-import data from '../data';
+import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
+
 
 export default function BookPage(props) {
-    const book = data.books.find((x) => x._id === props.match.params.id);
-    if (!book) {
-        return <div>Book not found</div>;
-    }
+    const dispatch = useDispatch();
+    const bookId = props.match.params.id;
+    const bookDetails = useSelector((state) => state.bookDetails);
+    const { loading, error, book } = bookDetails;
+
+    useEffect(() => {
+        dispatch(detailsBook(bookId));
+    }, [dispatch, bookId]);
+
     return (
         <div>
-            <div className="row top">
-                <div className="col-2">
-                    <img className="medium" src={book.image} alt={book.name}></img>
-                </div>
-                <div className="col-1">
-                    <div className="card card-body">
-                        <ul>
-                        <Rating
-                            rating={book.rating}
-                            numReviews={book.numReviews}
-                        ></Rating>
-                        <p className="category"><strong>{book.category}</strong></p>
-                        <li>
-                            <h1>{book.name}</h1>
-                        </li>
-                        <li><strong>Description:</strong>
-                            <p>{book.description}</p>
-                        </li>
-                        </ul>
-                        <ul className="btn">
+            {loading ? (
+                <LoadingBox></LoadingBox>
+            ) : error ? (
+                <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+            <div>
+                <div className="row top">
+                    <div className="col-2">
+                        <img 
+                            className="medium" 
+                            src={book.image} 
+                            alt={book.name}
+                        ></img>
+                    </div>
+                    <div className="col-1">
+                        <div className="card card-body">
+                            <ul>
+                            <Rating
+                                rating={book.rating}
+                                numReviews={book.numReviews}
+                            ></Rating>
+                            <p className="category"><strong>{book.category}</strong></p>
                             <li>
-                                <button className="primary block">Review</button>
-                                <button className="primary cube">Save for later</button>
-                            </li>            
-                        </ul>
+                                <h1>{book.name}</h1>
+                            </li>
+                            <li><strong>Description:</strong>
+                                <p>{book.description}</p>
+                            </li>
+                            </ul>
+                            <ul className="btn">
+                                <li>
+                                    <button className="primary block">Review</button>
+                                    <button className="primary cube">Save for later</button>
+                                </li>            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-2">
+                    <div className="card card-body">
+                        <strong>Reviews:</strong>
+                        <p>{book.review}</p>
                     </div>
                 </div>
             </div>
-            <div className="col-2">
-                <div className="card card-body">
-                    <strong>Reviews:</strong>
-                <p>{book.review}</p>
-
-                </div>
-            </div>
+        )}
         </div>
     );
 }
