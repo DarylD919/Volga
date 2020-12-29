@@ -25,7 +25,7 @@ function Navbar() {
         <Link className="navbar-title" to="/">
             Volga
         </Link>
-        <Link className="navbar-book" to="/bookmark">
+        <Link className="navbar-book" to="/review">
             <IconsFa.FaBookmark />
             {bookMarks.length > 0 && (
                 <span className="badge">{bookMarks.length}</span>
