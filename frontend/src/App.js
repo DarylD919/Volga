@@ -5,6 +5,7 @@ import BookPage from './pages/BookPage';
 import HomePage from './pages/HomePage';
 import ReviewPage from './pages/ReviewPage';
 import BookMarkPage from './pages/BookMarkPage';
+import SignInPage from './pages/SignInPage';
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/book/:id" component={BookPage}></Route>
         <Route path="/review/:id?" component={ReviewPage}></Route>
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
+        <Route path="/signin" component={SignInPage}></Route>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
     </div>

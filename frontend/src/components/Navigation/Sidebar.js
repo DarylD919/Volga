@@ -22,8 +22,8 @@ export const Sidebar =
         cName: 'nav-sub'
     },
     {
-        title:'Login',
-        path: '/login',
+        title:'Signin',
+        path: '/signin',
         icon:<IconsFa.FaSignInAlt />,
         cName: 'nav-sub'
     }
