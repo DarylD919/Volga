@@ -1,11 +1,15 @@
 import express from 'express';
 import  mongoose  from 'mongoose';
+import dotenv from 'dotenv';
 import bookRouter from './routers/bookRouter.js';
 import userRouter from './routers/userRouter.js';
 
-
+//something secret
+dotenv.config();
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
 //create connection
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/volga', {

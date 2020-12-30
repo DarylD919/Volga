@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-
+//encrypts the password 
 const data = {
     users: [
         {
