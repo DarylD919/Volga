@@ -1,4 +1,4 @@
-import { MARK_ADD_ITEM } from '../constants/markConstants';
+import { MARK_ADD_ITEM, MARK_REMOVE_ITEM } from '../constants/markConstants';
 
 export const markReducer = (state = { bookMarks: [] }, action) => {
     switch(action.type) {
@@ -15,6 +15,11 @@ export const markReducer = (state = { bookMarks: [] }, action) => {
             } else {
                 return { ...state, bookMarks: [...state.bookMarks, item] };
             }
+
+        case MARK_REMOVE_ITEM:
+            return {
+                ...state, bookMarks: state.bookMarks.filter((x) => x.book !== action.payload),
+            };
             default: 
                 return state;
     }

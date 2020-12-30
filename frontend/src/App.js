@@ -18,8 +18,8 @@ export default function App() {
       <main>
         <Route path="/" component={HomePage} exact></Route>
         <Route path="/book/:id" component={BookPage}></Route>
-        <Route path="/review/:id" component={ReviewPage}></Route>
-        <Route path="/bookmark/:id" component={BookMarkPage}></Route>
+        <Route path="/review/:id?" component={ReviewPage}></Route>
+        <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
     </div>

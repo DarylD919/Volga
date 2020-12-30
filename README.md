@@ -1,11 +1,10 @@
 # volga
 book review website v1.2
 
-backend server 
+backend server MongoDB implemented
 
-simple .get api added
 
-p17
+p20
 
 1.create pages 
     HomePage

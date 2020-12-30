@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { MARK_ADD_ITEM } from '../constants/markConstants';
+import { MARK_ADD_ITEM, MARK_REMOVE_ITEM } from '../constants/markConstants';
 
 export const addToBookMark = (bookId) => async (dispatch, getState) => {
     const { data } = await Axios.get(`/api/books/${bookId}`);
@@ -14,5 +14,10 @@ export const addToBookMark = (bookId) => async (dispatch, getState) => {
             book: data._id,
         },
     });
+    localStorage.setItem('bookMarks', JSON.stringify(getState().mark.bookMarks));
+}
+
+export const removeFromMark = (bookId) => (dispatch, getState) => {
+    dispatch ({ type: MARK_REMOVE_ITEM, payload: bookId});
     localStorage.setItem('bookMarks', JSON.stringify(getState().mark.bookMarks));
 }

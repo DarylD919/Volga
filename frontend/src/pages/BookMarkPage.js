@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToBookMark } from '../actions/markActions';
+import { addToBookMark, removeFromMark } from '../actions/markActions';
 import MessageBox from '../components/MessageBox';
 
 
@@ -19,7 +19,7 @@ export default function BookMarkPage(props) {
     }, [dispatch, bookId]);
 
     const removeFromMarkHandler = (id) => {
-        //remove the mark
+        dispatch(removeFromMark(id));
     };
 
     const reviewOutHandler = () => {

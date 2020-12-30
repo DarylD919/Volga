@@ -1,1 +1,3 @@
 export const MARK_ADD_ITEM = 'MARK_ADD_ITEM';
+
+export const MARK_REMOVE_ITEM = 'MARK_REMOVE_ITEM';

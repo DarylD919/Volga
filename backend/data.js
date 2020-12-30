@@ -1,7 +1,24 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+    users: [
+        {
+            name:'Daryl',
+            email:'admin@example.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: true,
+        },
+        {
+            name:'Ben',
+            email:'ben@example.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: false,
+        },
+    ],
+
     books: [
         {
-            _id:'1',
+            
             name:'Book',
             category:'fiction',
             image: '/images/book1.jpg',
@@ -12,7 +29,7 @@ const data = {
             review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet eros ac lectus tristique tempus. Quisque metus leo, ultricies sollicitudin diam sit amet, facilisis rhoncus leo. Fusce imperdiet erat ac felis facilisis, eu dictum ex pretium. In malesuada mauris quis magna dictum consequat. Sed dapibus tellus dolor, non tincidunt mauris aliquam in. Fusce auctor quam mi, iaculis lobortis nulla mattis vitae. Etiam a urna orci. Nam tincidunt viverra lectus id pretium.'
         },
         {
-            _id:'2',
+            
             name:'Book of wonder',
             category:'romance',
             image: '/images/book2.jpg',
@@ -23,7 +40,7 @@ const data = {
             review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet eros ac lectus tristique tempus. Quisque metus leo, ultricies sollicitudin diam sit amet, facilisis rhoncus leo. Fusce imperdiet erat ac felis facilisis, eu dictum ex pretium. In malesuada mauris quis magna dictum consequat. Sed dapibus tellus dolor, non tincidunt mauris aliquam in. Fusce auctor quam mi, iaculis lobortis nulla mattis vitae. Etiam a urna orci. Nam tincidunt viverra lectus id pretium.'
         },
         {
-            _id:'3',
+            
             name:'Book of guilt',
             category:'Adventure',
             image: '/images/book3.jpg',
@@ -34,7 +51,7 @@ const data = {
             review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet eros ac lectus tristique tempus. Quisque metus leo, ultricies sollicitudin diam sit amet, facilisis rhoncus leo. Fusce imperdiet erat ac felis facilisis, eu dictum ex pretium. In malesuada mauris quis magna dictum consequat. Sed dapibus tellus dolor, non tincidunt mauris aliquam in. Fusce auctor quam mi, iaculis lobortis nulla mattis vitae. Etiam a urna orci. Nam tincidunt viverra lectus id pretium.'
         },
         {
-            _id:'4',
+            
             name:'Book of magic',
             category:'Horror',
             image: '/images/book4.jpg',
@@ -45,7 +62,7 @@ const data = {
             review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet eros ac lectus tristique tempus. Quisque metus leo, ultricies sollicitudin diam sit amet, facilisis rhoncus leo. Fusce imperdiet erat ac felis facilisis, eu dictum ex pretium. In malesuada mauris quis magna dictum consequat. Sed dapibus tellus dolor, non tincidunt mauris aliquam in. Fusce auctor quam mi, iaculis lobortis nulla mattis vitae. Etiam a urna orci. Nam tincidunt viverra lectus id pretium.'
         },
         {
-            _id:'5',
+           
             name:'Book of life',
             category:'fiction',
             image: '/images/book5.jpg',
@@ -56,7 +73,7 @@ const data = {
             review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet eros ac lectus tristique tempus. Quisque metus leo, ultricies sollicitudin diam sit amet, facilisis rhoncus leo. Fusce imperdiet erat ac felis facilisis, eu dictum ex pretium. In malesuada mauris quis magna dictum consequat. Sed dapibus tellus dolor, non tincidunt mauris aliquam in. Fusce auctor quam mi, iaculis lobortis nulla mattis vitae. Etiam a urna orci. Nam tincidunt viverra lectus id pretium.'
         },
         {
-            _id:'6',
+            
             name:'Book of power',
             category:'fiction',
             image: '/images/book6.jpg',

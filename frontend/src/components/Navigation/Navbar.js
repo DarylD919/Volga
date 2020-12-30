@@ -7,12 +7,14 @@ import '../../index.css';
 import { useSelector } from 'react-redux';
 
 
-function Navbar() {
+function Navbar(props) {
+
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar)
 
     const mark = useSelector((state) => state.mark);
     const { bookMarks } = mark;
+
 
     return (
         <>
@@ -25,7 +27,7 @@ function Navbar() {
         <Link className="navbar-title" to="/">
             Volga
         </Link>
-        <Link className="navbar-book" to='/bookmark'>
+        <Link className="navbar-book" to={`/bookmark`}>
             <IconsFa.FaBookmark />
             {bookMarks.length > 0 && (
                 <span className="badge">{bookMarks.length}</span>
