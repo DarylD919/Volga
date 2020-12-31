@@ -49,6 +49,11 @@ function Navbar(props) {
                 <Link to="#">{userInfo.name}<IconsFa.FaChevronDown /></Link>
                 <ul className= "dropdown-content">
                     <li>
+                        <Link to="/profile">
+                            Profile
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="#signout" onClick={signoutHandler}>
                             Sign Out
                         </Link>

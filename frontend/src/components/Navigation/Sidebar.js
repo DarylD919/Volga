@@ -12,7 +12,7 @@ export const Sidebar =
     },
     {
         title:'Review',
-        path: '/review',
+        path: `/review`,
         icon:<IconsFa.FaFileAlt />,
         cName: 'nav-sub'
     },

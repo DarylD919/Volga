@@ -4,7 +4,10 @@ book review website v1.2
 backend server MongoDB implemented
 
 
-p23
+p24
+
+implement authorization properly 
+redirect to a signin page 
 
 1.create pages 
     HomePage

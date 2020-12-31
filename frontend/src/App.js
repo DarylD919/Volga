@@ -7,6 +7,7 @@ import ReviewPage from './pages/ReviewPage';
 import BookMarkPage from './pages/BookMarkPage';
 import SignInPage from './pages/SignInPage';
 import RegisterPage from './pages/RegisterPage';
+import ProfilePage from './pages/ProfilePage';
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
         <Route path="/register" component={RegisterPage}></Route>
+        <Route path="/profile" component={ProfilePage}></Route>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
     </div>
