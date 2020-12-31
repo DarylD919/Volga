@@ -11,6 +11,9 @@ export default function BookMarkPage(props) {
     const mark = useSelector((state) => state.mark);
     const { bookMarks } = mark;
 
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo } = userSignin;
+
     const dispatch = useDispatch();
     useEffect(() => {
         if (bookId) {
@@ -29,7 +32,7 @@ export default function BookMarkPage(props) {
     return (
         <div>
             <div>
-                <h1>user name books you have saved</h1>
+                <h1>{userInfo.name} books you have saved</h1>
                 {bookMarks.length === 0 ? (
                     <MessageBox>No books saved. <Link to="/">Review some books</Link></MessageBox>
                 ) : (

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as IconsFa from 'react-icons/fa';
 
+
 export const Sidebar = 
 [
     {
@@ -21,10 +22,5 @@ export const Sidebar =
         icon:<IconsFa.FaGripVertical/>,
         cName: 'nav-sub'
     },
-    {
-        title:'Signin',
-        path: '/signin',
-        icon:<IconsFa.FaSignInAlt />,
-        cName: 'nav-sub'
-    }
+    
 ]

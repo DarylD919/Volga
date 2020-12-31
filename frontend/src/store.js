@@ -6,8 +6,14 @@ import
     bookDetailsReducer, 
     bookListReducer,
  } from './reducers/bookReducers';
+import { userSigninReducer } from './reducers/userReducers';
 
 const initialState = {
+    userSignin: {
+        userInfo: localStorage.getItem('userInfo')
+        ? JSON.parse(localStorage.getItem('userInfo'))
+        : null,
+    },
     mark: {
         bookMarks: localStorage.getItem('bookMarks')
         ? JSON.parse(localStorage.getItem('bookMarks'))
@@ -21,6 +27,7 @@ const reducer = combineReducers({
     bookList: bookListReducer,
     bookDetails: bookDetailsReducer,
     mark: markReducer,
+    userSignin: userSigninReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

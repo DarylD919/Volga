@@ -2,18 +2,29 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as IconsFa from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import { useDispatch, useSelector } from 'react-redux';
 import { Sidebar } from './Sidebar';
+import { signout } from '../../actions/userActions';
 import '../../index.css';
-import { useSelector } from 'react-redux';
 
 
 function Navbar(props) {
 
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar)
-
+    
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo } = userSignin;
+    
     const mark = useSelector((state) => state.mark);
     const { bookMarks } = mark;
+
+
+    const dispatch = useDispatch();
+    const signoutHandler = () => {
+    dispatch(signout());
+    };
+
 
 
     return (
@@ -33,6 +44,22 @@ function Navbar(props) {
                 <span className="badge">{bookMarks.length}</span>
             )}
         </Link>
+        {userInfo ? (
+            <div className="dropdown">
+                <Link to="#">{userInfo.name}<IconsFa.FaChevronDown /></Link>
+                <ul className= "dropdown-content">
+                    <li>
+                        <Link to="#signout" onClick={signoutHandler}>
+                            Sign Out
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+        ) : (
+            <Link className="navbar-ss" to={`/signin`}>
+            SignIn
+        </Link>
+        )}
         <nav className = {sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
                 <li className="navbar-toggle">
