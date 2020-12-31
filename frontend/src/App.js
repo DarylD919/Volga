@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import ReviewPage from './pages/ReviewPage';
 import BookMarkPage from './pages/BookMarkPage';
 import SignInPage from './pages/SignInPage';
+import RegisterPage from './pages/RegisterPage';
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/review/:id?" component={ReviewPage}></Route>
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
+        <Route path="/register" component={RegisterPage}></Route>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
     </div>

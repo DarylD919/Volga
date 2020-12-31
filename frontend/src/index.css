@@ -338,7 +338,7 @@ img.medium {
 .form > div {
   display: flex;
   flex-direction: column;
-  margin: 5rem;
+  margin: 2rem;
 }
 .form label {
   margin: 1rem 5rem;
@@ -359,6 +359,9 @@ img.medium {
 
 
 /* Alert */
+.loading{
+  display: block !important;
+}
 
 .review{
   color: #0066ff;

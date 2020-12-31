@@ -37,9 +37,9 @@ export default function SignInPage(props) {
                 <div>
                     {loading && <LoadingBox></LoadingBox>}
                     {error && <MessageBox variant="danger">{error}</MessageBox>}
-                    <label htmlFor="email">Email Address</label>
+                    <label htmlFor="email">Email Address:</label>
                     <input type="email" id="email" placeholder="Enter Email"required onChange={(e) => setEmail(e.target.value)}></input>
-                    <label htmlFor="email">Email Password</label>
+                    <label htmlFor="email">Email Password:</label>
                     <input type="password" id="password" placeholder="Enter Password"required onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
                 <div>
@@ -51,8 +51,7 @@ export default function SignInPage(props) {
                 <div>
                     <label />
                     <div>
-                        <h1 className="reg"> New to Volga<br /> <Link to="/register">Register Here</Link></h1>
-                          
+                        <h1 className="reg"> New to Volga<br /> <Link to={`/register?redirect=${redirect}`}>Register Here</Link></h1>
                     </div>
                 </div>
             </form>

@@ -1,6 +1,6 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import bcyrpt from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import data from '../data.js';
 import { generateToken } from '../util.js'
 import User from '../models/userModel.js';
@@ -16,7 +16,7 @@ userRouter.get('/seed', expressAsyncHandler(async (req, res) => {
 userRouter.post('/signin', expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-        if (bcyrpt.compareSync(req.body.password, user.password)) {
+        if (bcrypt.compareSync(req.body.password, user.password)) {
             res.send ({
                 _id: user._id,
                 name: user.name,
@@ -28,6 +28,23 @@ userRouter.post('/signin', expressAsyncHandler(async (req, res) => {
         }
     }
     res.status(401).send({ message: 'Invalid email/password'});
+})
+);
+
+userRouter.post('/register', expressAsyncHandler(async (req, res) => {
+    const user = new User ({
+        name: req.body.name,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 8),
+    });
+    const createdUsers = await user.save();
+    res.send({
+        _id: createdUsers._id,
+        name: createdUsers.name,
+        email: createdUsers.email,
+        isAdmin: createdUsers.isAdmin,
+        token: generateToken(createdUsers),
+    });
 })
 );
 

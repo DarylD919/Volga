@@ -10,7 +10,8 @@ p23
     HomePage
     BookPage
     BookMarkPage - design v0.2
-    RegisterPage - in progress
+    RegisterPage
+    ReviewPage - In Progress
 2.index.css 
 3.signin api created / signin page 
 
