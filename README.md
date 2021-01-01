@@ -12,6 +12,7 @@ p24
     BookMarkPage - design v0.2
     RegisterPage
     ReviewPage - In Progress
+    REDIRECTION - signin
 
 2.index.css 
 3.signin api created / signin page 

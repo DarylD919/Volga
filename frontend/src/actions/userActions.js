@@ -97,4 +97,5 @@ export const signout = () => (dispatch) => {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('bookMarks');
     dispatch({ type: USER_SIGNOUT });
+    document.location.href ='/signin';
 };

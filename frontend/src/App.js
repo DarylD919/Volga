@@ -22,7 +22,7 @@ export default function App() {
       <main>
         <Route path="/" component={HomePage} exact></Route>
         <Route path="/book/:id" component={BookPage}></Route>
-        <Route path="/review/:id" component={ReviewPage}></Route>
+        <Route path="/review/:id?" component={ReviewPage}></Route>
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
         <Route path="/register" component={RegisterPage}></Route>

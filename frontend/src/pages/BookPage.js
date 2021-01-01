@@ -13,7 +13,7 @@ export default function BookPage(props) {
     const { loading, error, book } = bookDetails;
 
     const addToReviewHandler = () => {
-        props.history.push(`/review/${bookId}`);
+        props.history.push(`/signin?redirect=/review/${bookId}`);
     }
 
     const addToBookMarkHandler = () => {
