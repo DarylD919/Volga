@@ -17,8 +17,8 @@ export default function BookPage(props) {
     }
 
     const addToBookMarkHandler = () => {
-        // props.history.push('/signin?redirect=bookmark');
-        props.history.push(`/bookmark/${bookId}`);
+        //props.history.push('/signin?redirect=bookmark');
+        props.history.push(`/signin?redirect=/bookmark/${bookId}`);
     }
 
     useEffect(() => {

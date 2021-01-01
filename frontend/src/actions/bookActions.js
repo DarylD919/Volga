@@ -1,6 +1,9 @@
 import Axios from'axios';
 import 
 {   
+    BOOK_CREATE_FAIL,
+    BOOK_CREATE_REQUEST,
+    BOOK_CREATE_SUCCESS,
     BOOK_DETAILS_FAIL,
     BOOK_DETAILS_REQUEST,
     BOOK_DETAILS_SUCCESS,
@@ -36,4 +39,25 @@ export const detailsBook = (bookId) => async (dispatch) => {
                 : error.message,
         });
     }
-}
+};
+
+export const createBook = () => async (dispatch, getState) => {
+    dispatch({ type: BOOK_CREATE_REQUEST });
+    const {
+        userSignin:{ userInfo } 
+    } = getState();
+    try {
+        const { data } = await Axios.post(
+            '/api/books', {}, {
+                headers: { Authorization: `Bearer ${userInfo.token}` },
+            }
+        );
+        dispatch({ type: BOOK_CREATE_SUCCESS, payload: data.book, })
+    } catch (error) {
+        const message = 
+        error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+        dispatch ({ type: BOOK_CREATE_FAIL, payload: message });
+    }
+};

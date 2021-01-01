@@ -23,7 +23,7 @@ function Navbar(props) {
     const dispatch = useDispatch();
     const signoutHandler = () => {
     dispatch(signout());
-    };
+    }
 
 
 
@@ -38,7 +38,7 @@ function Navbar(props) {
         <Link className="navbar-title" to="/">
             Volga
         </Link>
-        <Link className="navbar-book" to={`/bookmark`}>
+        <Link className="navbar-book" to={'/signin?redirect=bookmark'}>
             <IconsFa.FaBookmark />
             {bookMarks.length > 0 && (
                 <span className="badge">{bookMarks.length}</span>
@@ -63,7 +63,22 @@ function Navbar(props) {
         ) : (
             <Link className="navbar-ss" to={`/signin`}>
             SignIn
-        </Link>
+            </Link>
+        )}
+        {userInfo && userInfo.isAdmin && (
+            <div className="dropdown">
+                <Link to="#admin">
+                    <IconsFa.FaChevronDown />
+                </Link>
+                <ul className="dropdown-content">
+                    <li>
+                        <Link to="/booklist">Books</Link>
+                    </li>
+                    <li>
+                        <Link to="/userlist">Users</Link>
+                    </li>
+                </ul>
+            </div>
         )}
         <nav className = {sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>

@@ -385,6 +385,12 @@ img.medium {
   font-family: 'Roboto Mono', sans-serif;
 }
 
+.alert-success {
+  color: #00ff62;
+  background-color: #8f8f8f;
+  font-family: 'Roboto Mono', sans-serif;
+}
+
 /* dropdown */
 .dropdown {
   display: inline-block;

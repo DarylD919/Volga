@@ -8,6 +8,7 @@ import BookMarkPage from './pages/BookMarkPage';
 import SignInPage from './pages/SignInPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
+import PrivateRoute from './components/PrivateRoute';
 
 
 export default function App() {
@@ -21,11 +22,11 @@ export default function App() {
       <main>
         <Route path="/" component={HomePage} exact></Route>
         <Route path="/book/:id" component={BookPage}></Route>
-        <Route path="/review/:id?" component={ReviewPage}></Route>
+        <Route path="/review/:id" component={ReviewPage}></Route>
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
         <Route path="/register" component={RegisterPage}></Route>
-        <Route path="/profile" component={ProfilePage}></Route>
+        <PrivateRoute path="/profile" component={ProfilePage}></PrivateRoute>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
     </div>
