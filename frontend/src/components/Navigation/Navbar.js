@@ -67,10 +67,10 @@ function Navbar(props) {
         )}
         {userInfo && userInfo.isAdmin && (
             <div className="dropdown">
-                <Link to="#admin">
-                    <IconsFa.FaChevronDown />
+                <Link className="admin" to="#admin">
+                    Admin
                 </Link>
-                <ul className="dropdown-content">
+                <ul className="admin-dropdown-content">
                     <li>
                         <Link to="/booklist">Books</Link>
                     </li>

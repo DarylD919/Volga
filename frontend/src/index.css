@@ -40,15 +40,17 @@ body {
 
 
 .navbar-title{
-    position: absolute;
-    top: -0.5rem;
-    right: 30rem;
-    font-family: 'Lobster', sans-serif;
-    font-size: 50px;
-    color: black;
+  display: inline-block;
+  position: absolute;
+  top: -0.5rem;
+  right: 40rem;
+  font-family: 'Lobster', sans-serif;
+  font-size: 50px;
+  color: black;
 }
 
 .navbar-book{
+  display: inline-block;
   position: absolute;
   font-family: 'Lobster', sans-serif;
   font-size: 3rem;
@@ -68,6 +70,8 @@ body {
   align-items: center;
   color: black;
 }
+
+
 
 .nav-menu-items .navbar-toggle{
     margin-left: 15rem;
@@ -392,6 +396,35 @@ img.medium {
 }
 
 /* dropdown */
+.admin{
+  display: inline-block;
+  position: absolute;
+  font-family: 'Lobster', sans-serif;
+  font-size: 2.5rem;
+  top: -1rem;
+  right: 13rem;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.admin-dropdown-content {
+  position: absolute;
+  display: none;
+  right: 10rem;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #8ad0ff;
+  margin: 0;
+  margin-top: 4rem;
+  border-radius: 0.5rem;
+}
+
+.dropdown:hover .admin-dropdown-content {
+  display: block;
+}
+
 .dropdown {
   display: inline-block;
   position: absolute;
@@ -406,7 +439,7 @@ img.medium {
 .dropdown-content {
   position: absolute;
   display: none;
-  right: 0;
+  right: -2rem;
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
