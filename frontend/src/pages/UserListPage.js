@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, listUsers } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { USER_DETAILS_RESET } from '../constants/userConstants';
 
-export default function UserListPage() {
+export default function UserListPage(props) {
     const userList = useSelector((state) => state.userList);
     const { loading, error, users } = userList;
 
@@ -18,6 +19,9 @@ export default function UserListPage() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(listUsers());
+        dispatch({
+            type: USER_DETAILS_RESET
+        })
     }, [dispatch, successDelete]);
 
     const deleteHandler = (user) => {
@@ -56,7 +60,7 @@ export default function UserListPage() {
                                 <td>{user.email}</td>
                                 <td>{user.isAdmin ? 'YES' : 'NO'}</td>
                                 <td>
-                                    <button className="primary block">Edit</button>
+                                    <button className="primary block" onClick={() => props.history.push(`/user/${user._id}/edit`)}>Edit</button>
                                     <button className="primary cube" onClick={() => deleteHandler(user)}>Delete</button>
                                 </td>
                             </tr>

@@ -16,7 +16,7 @@ backend server MongoDB implemented
 3.signin api created / signin page 
 4.Admin view - dropdown
     Book List -add/delete/edit
-    User List - delete/edit - inprogress
+    User List - delete/edit
 Admin can make user into admin in user edit
 5.user view
     Add Book - inprogess

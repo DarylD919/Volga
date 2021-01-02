@@ -13,6 +13,7 @@ import AdminRoute from './components/AdminRoute';
 import BookListPage from './pages/BookListPage';
 import BookEditPage from './pages/BookEditPage';
 import UserListPage from './pages/UserListPage';
+import UserEditPage from './pages/UserEditPage';
 
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/register" component={RegisterPage}></Route>
         <AdminRoute path="/booklist" component={BookListPage}></AdminRoute>
         <AdminRoute path="/userlist" component={UserListPage}></AdminRoute>
+        <AdminRoute path="/user/:id/edit" component={UserEditPage}></AdminRoute>
         <PrivateRoute path="/profile" component={ProfilePage}></PrivateRoute>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>
