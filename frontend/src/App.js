@@ -12,6 +12,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
 import BookListPage from './pages/BookListPage';
 import BookEditPage from './pages/BookEditPage';
+import UserListPage from './pages/UserListPage';
 
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/signin" component={SignInPage}></Route>
         <Route path="/register" component={RegisterPage}></Route>
         <AdminRoute path="/booklist" component={BookListPage}></AdminRoute>
+        <AdminRoute path="/userlist" component={UserListPage}></AdminRoute>
         <PrivateRoute path="/profile" component={ProfilePage}></PrivateRoute>
       </main>
       <footer className="row center">Created By Daryl Darilag</footer>

@@ -9,7 +9,7 @@ import
     bookListReducer,
     bookUpdateReducer,
  } from './reducers/bookReducers';
-import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducers';
+import { userDetailsReducer, userListReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducers';
 
 const initialState = {
     userSignin: {
@@ -37,6 +37,7 @@ const reducer = combineReducers({
     bookCreate: bookCreateReducer,
     bookUpdate: bookUpdateReducer,
     bookDelete: bookDeleteReducer,
+    userList: userListReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
