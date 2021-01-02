@@ -34,7 +34,7 @@ export default function BookMarkPage(props) {
             <div>
                 <h1>{userInfo.name} books you have saved</h1>
                 {bookMarks.length === 0 ? (
-                    <MessageBox>No books saved. <Link to="/">Review some books</Link></MessageBox>
+                    <MessageBox>No books saved. <Link to="/">Back</Link></MessageBox>
                 ) : (
                     <div>
                         {bookMarks.map((item) => (

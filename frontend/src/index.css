@@ -42,10 +42,10 @@ body {
 .navbar-title{
   display: inline-block;
   position: absolute;
-  top: -0.5rem;
-  right: 40rem;
+  top: -1rem;
+  right: 46%;
   font-family: 'Lobster', sans-serif;
-  font-size: 50px;
+  font-size: 5.5rem;
   color: black;
 }
 
@@ -271,8 +271,10 @@ button {
   font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f8f8;
   justify-content: center;
+}
+button{
+  background-color: #e2e2e2;
   cursor: pointer;
 }
 input:hover,
@@ -399,7 +401,7 @@ img.medium {
 .admin{
   display: inline-block;
   position: absolute;
-  font-family: 'Lobster', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-size: 2.5rem;
   top: -1rem;
   right: 13rem;
@@ -419,6 +421,8 @@ img.medium {
   margin: 0;
   margin-top: 4rem;
   border-radius: 0.5rem;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.5rem;
 }
 
 .dropdown:hover .admin-dropdown-content {
@@ -428,10 +432,10 @@ img.medium {
 .dropdown {
   display: inline-block;
   position: absolute;
-  font-family: 'Lobster', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-size: 2.5rem;
   top: 2.5rem;
-  right: 13rem;
+  right: 10%;
   justify-content: center;
   align-items: center;
   color: black;
@@ -447,8 +451,28 @@ img.medium {
   margin: 0;
   margin-top: 1rem;
   border-radius: 0.5rem;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.5rem;
 }
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
+/* table */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+.table button {
+  margin: 0 0.2rem;
+}

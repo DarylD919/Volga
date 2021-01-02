@@ -4,11 +4,9 @@ book review website v1.2
 backend server MongoDB implemented
 
 
-p24
-
 1.create pages 
     HomePage
-    BookPage
+    BookdetailsPage
     BookMarkPage - design v0.2
     RegisterPage
     ReviewPage - In Progress
@@ -17,6 +15,12 @@ p24
 2.index.css 
 3.signin api created / signin page 
 4.Admin view - dropdown
+    Book List -add/delete/edit
+    User List - delete
+5.user view
+    Add Book - inprogess
+    Add Review for a specific book - in works
+
 
 
 

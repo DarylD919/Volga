@@ -2,7 +2,7 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import data from '../data.js';
 import Book from '../models/bookModel.js';
-import { isAuth } from '../util.js';
+import { isAdmin, isAuth } from '../util.js';
 
 const bookRouter = express.Router();
 
@@ -28,7 +28,7 @@ bookRouter.get('/:id', expressAsyncHandler(async (req, res) => {
 })
 );
 
-bookRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
+bookRouter.post('/', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
     const book = new Book({
         name: 'sample name' + Date.now(),
         image: '/images/book1.jpg',

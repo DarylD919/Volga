@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { markReducer } from './reducers/markReducers';
 import 
 { 
+    bookCreateReducer,
     bookDetailsReducer, 
     bookListReducer,
  } from './reducers/bookReducers';
@@ -31,6 +32,7 @@ const reducer = combineReducers({
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
+    bookCreate: bookCreateReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

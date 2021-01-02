@@ -44,6 +44,21 @@ function Navbar(props) {
                 <span className="badge">{bookMarks.length}</span>
             )}
         </Link>
+        {userInfo && userInfo.isAdmin && (
+            <div className="dropdown">
+                <Link className="admin" to="#admin">
+                    Admin
+                </Link>
+                <ul className="admin-dropdown-content">
+                    <li>
+                        <Link to="/booklist">Books</Link>
+                    </li>
+                    <li>
+                        <Link to="/userlist">Users</Link>
+                    </li>
+                </ul>
+            </div>
+        )}
         {userInfo ? (
             <div className="dropdown">
                 <Link to="#">{userInfo.name}<IconsFa.FaChevronDown /></Link>
@@ -64,21 +79,6 @@ function Navbar(props) {
             <Link className="navbar-ss" to={`/signin`}>
             SignIn
             </Link>
-        )}
-        {userInfo && userInfo.isAdmin && (
-            <div className="dropdown">
-                <Link className="admin" to="#admin">
-                    Admin
-                </Link>
-                <ul className="admin-dropdown-content">
-                    <li>
-                        <Link to="/booklist">Books</Link>
-                    </li>
-                    <li>
-                        <Link to="/userlist">Users</Link>
-                    </li>
-                </ul>
-            </div>
         )}
         <nav className = {sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
