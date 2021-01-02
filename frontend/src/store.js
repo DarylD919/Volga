@@ -4,8 +4,10 @@ import { markReducer } from './reducers/markReducers';
 import 
 { 
     bookCreateReducer,
+    bookDeleteReducer,
     bookDetailsReducer, 
     bookListReducer,
+    bookUpdateReducer,
  } from './reducers/bookReducers';
 import { userDetailsReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer } from './reducers/userReducers';
 
@@ -33,6 +35,8 @@ const reducer = combineReducers({
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
     bookCreate: bookCreateReducer,
+    bookUpdate: bookUpdateReducer,
+    bookDelete: bookDeleteReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

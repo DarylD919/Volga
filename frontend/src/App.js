@@ -11,6 +11,7 @@ import ProfilePage from './pages/ProfilePage';
 import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
 import BookListPage from './pages/BookListPage';
+import BookEditPage from './pages/BookEditPage';
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
       <main>
         <Route path="/" component={HomePage} exact></Route>
         <Route path="/book/:id" component={BookPage} exact></Route>
+        <Route path="/book/:id/edit" component={BookEditPage} exact></Route>
         <Route path="/review/:id?" component={ReviewPage}></Route>
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>

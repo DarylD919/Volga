@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listBooks } from '../actions/bookActions';
+import { listBooks, createBook, deleteBook } from '../actions/bookActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { BOOK_CREATE_RESET } from '../constants/bookConstants';
+import { BOOK_CREATE_RESET, BOOK_DELETE_RESET } from '../constants/bookConstants';
 
 export default function BookListPage(props) {
     const bookList = useSelector((state) => state.bookList);
     const { loading, error, books } = bookList;
+
+    const bookDelete = useSelector((state) => state.bookDelete);
+    const {
+        loading: loadingDelete,
+        error: errorDelete,
+        success: successDelete
+    } = bookDelete;
 
     const bookCreate = useSelector((state) => state.bookCreate);
     const {
@@ -23,15 +30,21 @@ export default function BookListPage(props) {
             dispatch({ type: BOOK_CREATE_RESET });
             props.history.push(`/book/${createdBook._id}/edit`);
         }
+        if(successDelete){
+            dispatch({ type: BOOK_DELETE_RESET });
+        }
         dispatch(listBooks());
-    }, [dispatch, createdBook, props.history, successCreate]);
+    }, [dispatch, createdBook, props.history, successCreate, successDelete]);
 
-    const deleteHandler = () => {
+    const deleteHandler = (book) => {
         //Delete handler
-    }
+        if (window.confirm('Delete confirm?')){
+            dispatch(deleteBook(book._id));
+        }
+    };
 
     const createHandler = () => {
-        dispatch(createdBook());
+        dispatch(createBook());
     }
     return (
         <div>
@@ -41,6 +54,10 @@ export default function BookListPage(props) {
                     Create
                 </button>
             </div>
+
+            {loadingDelete && <LoadingBox></LoadingBox>}
+            {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
+
             {loadingCreate && <LoadingBox></LoadingBox>}
             {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
             {loading ? (

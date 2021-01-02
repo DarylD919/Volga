@@ -21,7 +21,7 @@ backend server MongoDB implemented
     Add Book - inprogess
     Add Review for a specific book - in works
 
-
-
+***
+Bug Image filehandler not working
 
 BookPage needs review/comments styled

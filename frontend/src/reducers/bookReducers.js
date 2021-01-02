@@ -10,6 +10,14 @@ const
     BOOK_CREATE_SUCCESS,
     BOOK_CREATE_FAIL,
     BOOK_CREATE_RESET,
+    BOOK_UPDATE_REQUEST,
+    BOOK_UPDATE_SUCCESS,
+    BOOK_UPDATE_FAIL,
+    BOOK_UPDATE_RESET,
+    BOOK_DELETE_REQUEST,
+    BOOK_DELETE_SUCCESS,
+    BOOK_DELETE_FAIL,
+    BOOK_DELETE_RESET,
 } = require ('../constants/bookConstants');
 
 export const bookListReducer = (
@@ -27,8 +35,7 @@ export const bookListReducer = (
     }
 };
 
-export const bookDetailsReducer = (
-    state = { book: {}, loading: true}, action) => {
+export const bookDetailsReducer = (state = { loading: true }, action) => {
         switch(action.type) {
             case BOOK_DETAILS_REQUEST:
                 return { loading: true };
@@ -56,3 +63,32 @@ export const bookCreateReducer = (state = {}, action) => {
     }
 };
 
+export const bookUpdateReducer = (state = {}, action) => {
+    switch (action.type) {
+        case BOOK_UPDATE_REQUEST:
+            return { loading: true };
+        case BOOK_UPDATE_SUCCESS:
+            return { loading: false, success: true };
+        case BOOK_UPDATE_FAIL:
+            return { loading: false, error: action.payload };
+        case BOOK_UPDATE_RESET:
+            return {};
+        default:
+            return state;
+    }
+};
+
+export const bookDeleteReducer = (state = {}, action) => {
+    switch (action.type) {
+        case BOOK_DELETE_REQUEST:
+            return { loading: true };
+        case BOOK_DELETE_SUCCESS:
+            return { loading: false, success: true };
+        case BOOK_DELETE_FAIL:
+            return { loading: false, error: action.payload };
+        case BOOK_DELETE_RESET:
+            return {};
+        default:
+            return state;
+    }
+}
