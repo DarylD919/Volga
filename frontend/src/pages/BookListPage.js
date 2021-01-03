@@ -28,7 +28,7 @@ export default function BookListPage(props) {
     useEffect(() => {
         if (successCreate) {
             dispatch({ type: BOOK_CREATE_RESET });
-            props.history.push(`/book/${createdBook._id}/edit`);
+            props.history.push(`/book/${createdBook._id}/create`);
         }
         if(successDelete){
             dispatch({ type: BOOK_DELETE_RESET });

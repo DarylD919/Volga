@@ -117,7 +117,6 @@ export default function BookEditPage(props) {
                     ></input>
                 </div>
                 <div>
-                <div>
                     <label htmlFor="image">Image:</label>
                     <input
                         id="image"
@@ -139,7 +138,6 @@ export default function BookEditPage(props) {
                     {errorUpload && (
                             <MessageBox variant="danger">{errorUpload}</MessageBox>
                     )}
-                </div>
                     <label htmlFor="description">Description:</label>
                     <textarea
                         id="description"

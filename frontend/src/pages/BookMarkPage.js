@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { detailsBook } from '../actions/bookActions';
 import { addToBookMark, removeFromMark } from '../actions/markActions';
 import MessageBox from '../components/MessageBox';
 
@@ -11,6 +12,7 @@ export default function BookMarkPage(props) {
     const mark = useSelector((state) => state.mark);
     const { bookMarks } = mark;
 
+
     const userSignin = useSelector((state) => state.userSignin);
     const { userInfo } = userSignin;
 
@@ -18,6 +20,7 @@ export default function BookMarkPage(props) {
     useEffect(() => {
         if (bookId) {
             dispatch(addToBookMark(bookId));
+            dispatch(detailsBook(bookId));
         }
     }, [dispatch, bookId]);
 
@@ -26,7 +29,7 @@ export default function BookMarkPage(props) {
     };
 
     const reviewOutHandler = () => {
-        props.history.push('/signin?redirect=review');
+        props.history.push(`/signin?redirect=/review/${bookId}`);
     }
 
     return (

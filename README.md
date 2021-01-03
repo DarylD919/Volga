@@ -22,5 +22,7 @@ Admin can make user into admin in user edit
     Add Book - inprogess
     Add Review for a specific book - in works
 
+Concept of review page - BETA 
+
 
 BookPage needs review/comments styled

@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { listBooks } from '../actions/bookActions';
+import { createBook, detailsBook, listBooks } from '../actions/bookActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { BOOK_CREATE_RESET } from '../constants/bookConstants';
+import { BOOK_CREATE_RESET, BOOK_UPDATE_RESET } from '../constants/bookConstants';
 
 export default function ReviewPage(props) {
+    const bookId = props.match.params.id;
+    const [review, setReview] = useState('');
+
     const bookDetails = useSelector((state) => state.bookDetails);
     const { book } = bookDetails;
+
 
     const userSignin = useSelector((state) => state.userSignin);
     const { userInfo } = userSignin;
@@ -20,32 +24,61 @@ export default function ReviewPage(props) {
         book: createdBook
     } = bookCreate;
 
+    const bookUpdate = useSelector((state) => state.bookUpdate);
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate,
+    } = bookUpdate;
+
     const dispatch = useDispatch();
     useEffect(() => {
-        if (successCreate) {
+        if (successUpdate){
             dispatch({ type: BOOK_CREATE_RESET });
-            props.history.push(`/book/${createdBook._id}/edit`);
+            props.history.push(`/book/${createdBook._id}/create`);
+            // props.history.push('/booklist');
         }
-        dispatch(listBooks());
-    }, [dispatch, createdBook, props.history, successCreate]);
+        if (!book || book._id !== bookId || successUpdate) {
+            dispatch({ type: BOOK_UPDATE_RESET });
+            dispatch(detailsBook(bookId));
+            dispatch(listBooks());
+        } else {
+            setReview(book.review);
+        }
+    }, [book, dispatch, bookId, successUpdate, props.history, successCreate, createdBook]);
+
 
     const createHandler = () => {
-        dispatch(createdBook());
+        dispatch(createBook());
     }
 
     return (
         <div>
             <div className="row">
-                <h1>Review {book.name}</h1>
+                <h1>Review</h1>
                 <button type="button" className="primary" onClick={createHandler}>
-                    Add book
+                    Create
                 </button>
             </div>
             {loadingCreate && <LoadingBox></LoadingBox>}
             {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
-            <p>
-                {userInfo.name} : {book.name}
-            </p>
+            <div>
+                <form className="form">
+                <h1>Review </h1>
+                <div>
+                    <label htmlFor="review">Review:</label>
+                    <textarea
+                        id="review"
+                        rows="5"
+                        type="text"
+                        placeholder="Review"
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                    ></textarea>
+                </div>
+                <button type="button" className="primary">Post Review</button>
+                </form>
+            </div>
         </div>
     );
 }

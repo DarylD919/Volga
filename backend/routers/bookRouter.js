@@ -28,7 +28,7 @@ bookRouter.get('/:id', expressAsyncHandler(async (req, res) => {
 })
 );
 
-bookRouter.post('/', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
+bookRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
     const book = new Book({
         name: 'sample name' + Date.now(),
         category: 'sample category',

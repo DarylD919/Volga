@@ -14,6 +14,7 @@ import BookListPage from './pages/BookListPage';
 import BookEditPage from './pages/BookEditPage';
 import UserListPage from './pages/UserListPage';
 import UserEditPage from './pages/UserEditPage';
+import BookCreatePage from './pages/BookCreatePage';
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/" component={HomePage} exact></Route>
         <Route path="/book/:id" component={BookPage} exact></Route>
         <Route path="/book/:id/edit" component={BookEditPage} exact></Route>
+        <Route path="/book/:id/create" component={BookCreatePage} exact></Route>
         <Route path="/review/:id?" component={ReviewPage}></Route>
         <Route path="/bookmark/:id?" component={BookMarkPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
